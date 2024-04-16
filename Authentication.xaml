@@ -6,7 +6,30 @@
         xmlns:local="clr-namespace:ProtypeForEV_Charging"
         mc:Ignorable="d"
         Title="Authentication" Height="450" Width="800">
-    <Grid>
-        
+    <!-- Set background color same as main window -->
+    <Grid Background="#DDFFDC">
+        <!-- Main Heading -->
+        <TextBlock Text="EV CHARGING STATION" FontSize="45" FontWeight="Bold" Margin="160,10,45,353" FontFamily="Wendy One" RenderTransformOrigin="0.5,0.5"/>
+
+        <!-- Form -->
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="114,92,0,0">
+            <!-- Input Field for Account Number -->
+            <TextBlock Text="Enter Account Number" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="AccountNoTextBox" Width="240" Height="28"/>
+            </StackPanel>
+
+            <!-- Input Field for Pin -->
+            <TextBlock Text="Enter your Pin" FontSize="20" FontWeight="Bold" Margin="0,20,0,10"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="PinTextBox" Width="240" Height="28"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Or Label -->
+        <Label Content="Or" HorizontalAlignment="Left" Margin="386,124,0,0" VerticalAlignment="Top" Height="33" Width="72" FontFamily="Arial Black" FontSize="24"/>
+
+        <!-- Scan QR Code Button -->
+        <Button Content="Scan QR Code" HorizontalAlignment="Left" Margin="490,114,0,0" VerticalAlignment="Top" Width="150" Height="40" FontSize="16" FontWeight="Bold" Background="#4CAF50" Foreground="White" BorderThickness="0"/>
     </Grid>
 </Window>
