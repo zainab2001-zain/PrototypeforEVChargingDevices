@@ -6,7 +6,29 @@
         xmlns:local="clr-namespace:ProtypeForEV_Charging"
         mc:Ignorable="d"
         Title="ChargingDetails" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="#DDFFDC">
+        <TextBlock Text="EV CHARGING STATION" FontSize="45" FontWeight="Bold" Margin="181,31,0,0" FontFamily="Wendy One" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left"/>
+        <Label Content="Select your Vehicle" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,83,0,311"/>
+
+        <!-- StackPanel to arrange images and labels horizontally -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,120,0,0">
+            <!-- Car -->
+            <StackPanel Margin="10">
+                <Image Source="D:\my projects\ProtypeForEV Charging\car.png" Width="100" Height="100" Stretch="Uniform" />
+                <Label Content="Car" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Bike -->
+            <StackPanel Margin="10">
+                <Image Source="D:\my projects\ProtypeForEV Charging\bike.png" Width="100" Height="100" Stretch="Uniform" />
+                <Label Content="Bike" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- EV Scooter -->
+            <StackPanel Margin="10">
+                <Image Source="D:\my projects\ProtypeForEV Charging\evscooter.png" Width="100" Height="100" Stretch="Uniform" />
+                <Label Content="EV Scooter" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
