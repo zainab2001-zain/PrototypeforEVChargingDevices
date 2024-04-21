@@ -17,11 +17,29 @@ namespace ProtypeForEV_Charging
     /// <summary>
     /// Interaction logic for Charging.xaml
     /// </summary>
-    public partial class Charging : Window
+    public partial class PaymentDetails : Window
     {
-        public Charging()
+        public PaymentDetails()
         {
             InitializeComponent();
+        }
+
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Check if a payment method is selected
+            if (!(CreditCardRadioButton.IsChecked == true || CashPaymentRadioButton.IsChecked == true))
+            {
+                MessageBox.Show("Please select a payment method.", "Payment Method Not Selected", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                // Proceed to the next page (authentication page)
+                DisplayCharging displayCharging = new DisplayCharging();
+                displayCharging.Show();
+
+                // Close the current window
+                this.Close();
+            }
         }
     }
 }

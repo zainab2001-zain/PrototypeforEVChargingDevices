@@ -6,7 +6,17 @@
         xmlns:local="clr-namespace:ProtypeForEV_Charging"
         mc:Ignorable="d"
         Title="DisplayCharging" Height="450" Width="800">
-    <Grid>
-        
+    <Grid  Background="#DDFFDC">
+        <TextBlock Text="EV CHARGING STATION" FontSize="30" FontWeight="Bold" Margin="10" HorizontalAlignment="Center"/>
+        <Label Content="Your Vehicle is charging!" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,90,0,20"/>
+
+        <!-- Progress Bar for Charging -->
+        <ProgressBar x:Name="ChargingProgressBar" Width="400" Height="100" Margin="0,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label x:Name="TimeLeftLabel" Content="" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,200,0,0"/>
+
+
+        <!-- Cancel Charging Button -->
+        <Button Content="Cancel Charging" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Width="150" Height="40" Background="#FF6347" Foreground="White" Margin="0,180,0,0" Click="CancelCharging_Click"/>
+
     </Grid>
 </Window>

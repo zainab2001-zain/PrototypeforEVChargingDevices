@@ -3,31 +3,86 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ChargingDetails" Height="500" Width="800">
 
+    <Window.Resources>
+        <!-- Style for the radio buttons -->
+        <Style x:Key="RadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid>
+                            <Ellipse x:Name="OuterCircle" Width="40" Height="40" Fill="LightGray"/>
+                            <Ellipse x:Name="InnerCircle" Width="12" Height="12" Fill="White" Opacity="0"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="OuterCircle" Property="Fill" Value="#2196F3"/>
+                                <Setter TargetName="InnerCircle" Property="Opacity" Value="1"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="OuterCircle" Property="Fill" Value="LightBlue"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid Background="#DDFFDC">
         <TextBlock Text="EV CHARGING STATION" FontSize="30" FontWeight="Bold" Margin="10" HorizontalAlignment="Center"/>
-        <Label Content="Select your Vehicle" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,50,0,20"/>
+        <Label Content="Select your Vehicle" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,60,0,20"/>
 
-        <!-- StackPanel to arrange radio buttons and labels horizontally -->
-        <!-- Car Radio Button -->
-        <StackPanel Margin="150,100,0,0">
-            <RadioButton>
-                <Image Source="D:\my projects\ProtypeForEV Charging\car.png" Width="100" Height="100" Stretch="Uniform" />
-            </RadioButton>
+        <!-- Vehicle Selection Radio Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,100,0,20">
+            <!-- Car Radio Button -->
+            <StackPanel Margin="10">
+                <RadioButton GroupName="Vehicle" Name="CarRadioButton">
+                    <Image Source="D:\my projects\ProtypeForEV Charging\car.png" Width="100" Height="100" Stretch="Uniform" />
+                </RadioButton>
+            </StackPanel>
+
+            <!-- Bike Radio Button -->
+            <StackPanel Margin="10">
+                <RadioButton GroupName="Vehicle" Name="BikeRadioButton">
+                    <Image Source="D:\my projects\ProtypeForEV Charging\bike.png" Width="100" Height="100" Stretch="Uniform" />
+                </RadioButton>
+            </StackPanel>
+
+            <!-- EV Scooter Radio Button -->
+            <StackPanel Margin="10">
+                <RadioButton GroupName="Vehicle" Name="ScooterRadioButton">
+                    <Image Source="D:\my projects\ProtypeForEV Charging\evscooter.png" Width="100" Height="100" Stretch="Uniform" />
+                </RadioButton>
+            </StackPanel>
         </StackPanel>
 
-        <!-- Bike Radio Button -->
-        <StackPanel Margin="10">
-            <RadioButton>
-                <Image Source="D:\my projects\ProtypeForEV Charging\bike.png" Width="100" Height="100" Stretch="Uniform" />
-            </RadioButton>
+        <!-- Charging Duration Selection -->
+        <Label Content="Choose Charge Duration" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,210,0,20"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,250,0,0">
+            <RadioButton Content="Up to 8 hours" GroupName="ChargeDuration" FontSize="18" Name="EightHoursRadioButton"/>
+            <RadioButton Content="Up to 2 hours" GroupName="ChargeDuration" FontSize="18" Name="TwoHoursRadioButton"/>
+            <RadioButton Content="Up to 1 hour" GroupName="ChargeDuration" FontSize="18" Name="OneHourRadioButton"/>
         </StackPanel>
 
-        <!-- EV Scooter Radio Button -->
-        <StackPanel Margin="10">
-            <RadioButton>
-                <Image Source="D:\my projects\ProtypeForEV Charging\evscooter.png" Width="100" Height="100" Stretch="Uniform" />
-            </RadioButton>
+
+        <!-- Charging Bay Selection -->
+        <Label Content="Choose Charging Bay (Numbered 1 to 10)" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,290,0,20"/>
+        <StackPanel x:Name="ChargingBayPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,250,0,0">
+            <RadioButton Content="1" Style="{StaticResource RadioButtonStyle}"/>
+            <RadioButton Content="2" Style="{StaticResource RadioButtonStyle}"/>
+            <RadioButton Content="3" Style="{StaticResource RadioButtonStyle}"/>
+            <RadioButton Content="4" Style="{StaticResource RadioButtonStyle}"/>
+            <RadioButton Content="5" Style="{StaticResource RadioButtonStyle}"/>
+            <RadioButton Content="6" Style="{StaticResource RadioButtonStyle}"/>
+            <RadioButton Content="7" Style="{StaticResource RadioButtonStyle}"/>
+            <RadioButton Content="8" Style="{StaticResource RadioButtonStyle}"/>
+            <RadioButton Content="9" Style="{StaticResource RadioButtonStyle}"/>
+            <RadioButton Content="10" Style="{StaticResource RadioButtonStyle}"/>
         </StackPanel>
+        <Button x:Name="NextButton" Content="Next" HorizontalAlignment="Center" Margin="0,370,0,0" Width="150" Height="40" FontSize="16" FontWeight="Bold" Background="#2E8B57" Foreground="White" BorderThickness="0" Click="NextButton_Click"/>
 
 
     </Grid>
