@@ -15,28 +15,26 @@ using System.Windows.Shapes;
 namespace ProtypeForEV_Charging
 {
     /// <summary>
-    /// Interaction logic for Authentication.xaml
+    /// Interaction logic for PinInput.xaml
     /// </summary>
-    public partial class Authentication : Window
+    public partial class PinInput : Window
     {
-        
-        public Authentication()
+        private UserCredentials userCredentials;
+        private TextBox selectedTextBox; // Store reference to the selected input field
+        public PinInput()
         {
             InitializeComponent();
-           
+            userCredentials = new UserCredentials(); // Instantiate the class
         }
-
-        private TextBox selectedTextBox; // Store reference to the selected input field
-
-        private void AccountNoTextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void PinTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             
-          
         }
 
        
-
-        private void KeyboardButton_Click(object sender, RoutedEventArgs e)
+        
+       
+        private void PinKeypadButton_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             if (button != null && selectedTextBox != null)
@@ -45,8 +43,7 @@ namespace ProtypeForEV_Charging
                 selectedTextBox.Text += button.Content.ToString();
             }
         }
-
-        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        private void PinClearButton_Click(object sender, RoutedEventArgs e)
         {
             if (selectedTextBox != null)
             {
@@ -54,51 +51,49 @@ namespace ProtypeForEV_Charging
             }
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void PinBackButton_Click(object sender, RoutedEventArgs e)
         {
             if (selectedTextBox != null && selectedTextBox.Text.Length > 0)
             {
                 selectedTextBox.Text = selectedTextBox.Text.Substring(0, selectedTextBox.Text.Length - 1);
             }
         }
-
+        // Hide the keyboard when the focus moves away from all text boxes
         private void Window_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
            
         }
-       
-
-
-
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
             // Check if both AccountNoTextBox and PinTextBox are not empty
-            if (string.IsNullOrWhiteSpace(AccountNoTextBox.Text) )
+            if (  string.IsNullOrWhiteSpace(PinTextBox.Text))
             {
                 // Display a message indicating that both fields are required
-                MessageBox.Show("Account Number required!", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Enter Pin Number!", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-              
+                // Save the entered credentials globally
+               
+                userCredentials.AccountPin = PinTextBox.Text;
                 // Proceed to the ChargingDetails window
-                PinInput pinInput = new PinInput();
-                pinInput.Show();
+                ChargingDetails chargingDetailsWindow = new ChargingDetails();
+                chargingDetailsWindow.Show();
 
                 // Close the current Authentication window
                 this.Close();
             }
+
         }
-        private void ScanQRCodeButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            // Create a new instance of the QR code scanner window
-            QRCodeScannerWindow scannerWindow = new QRCodeScannerWindow();
-
-            // Show the scanner window
-            scannerWindow.ShowDialog();
+            // Handle the "Back" button click event
+            // Here, you can navigate back to the previous window or perform any other desired action
+            // For example:
+            Authentication mainWindow = new Authentication(); // Assuming MainWindow is the previous window
+            mainWindow.Show();
+            this.Close(); // Close the current window
         }
-
     }
 
 }
-

@@ -19,9 +19,13 @@ namespace ProtypeForEV_Charging
     /// </summary>
     public partial class PINConfirmationWindow : Window
     {
+        UserCredentials userCredentials;
         public PINConfirmationWindow()
         {
+           
             InitializeComponent();
+
+            userCredentials = new UserCredentials();
         }
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
@@ -29,7 +33,7 @@ namespace ProtypeForEV_Charging
             string enteredPIN = PINTextBox.Text;
 
             // Check if the PIN is correct (you can add your validation logic here)
-            if (enteredPIN == "123456")
+            if (enteredPIN == userCredentials.AccountPin)
             {
                 DialogResult = true; // Set DialogResult to true to indicate success
                                      // Navigate to the charging details page

@@ -10,104 +10,14 @@
             <TextBox x:Name="AccountNoTextBox" Width="240" Height="28" GotFocus="AccountNoTextBox_GotFocus"/>
             
         </StackPanel>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,200,0,0">
-            <TextBlock Text="Enter your Pin" FontSize="20" FontWeight="Bold" Margin="0,20,0,10"/>
-            <TextBox x:Name="PinTextBox" Width="240" Height="30" GotFocus="PinTextBox_GotFocus"/>
-        </StackPanel>
 
-        <!-- Pin keypad -->
-        <Grid Name="PinKeypadGrid" Visibility="Collapsed" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,230,0,100">
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="30"/>
-            </Grid.ColumnDefinitions>
-            <Button Content="1" Grid.Row="0" Grid.Column="0" Click="PinKeypadButton_Click"/>
-            <Button Content="2" Grid.Row="0" Grid.Column="1" Click="PinKeypadButton_Click"/>
-            <Button Content="3" Grid.Row="0" Grid.Column="2" Click="PinKeypadButton_Click"/>
-            <Button Content="4" Grid.Row="1" Grid.Column="0" Click="PinKeypadButton_Click"/>
-            <Button Content="5" Grid.Row="1" Grid.Column="1" Click="PinKeypadButton_Click"/>
-            <Button Content="6" Grid.Row="1" Grid.Column="2" Click="PinKeypadButton_Click"/>
-            <Button Content="7" Grid.Row="2" Grid.Column="0" Click="PinKeypadButton_Click"/>
-            <Button Content="8" Grid.Row="2" Grid.Column="1" Click="PinKeypadButton_Click"/>
-            <Button Content="9" Grid.Row="2" Grid.Column="2" Click="PinKeypadButton_Click"/>
-            <Button Content="Clear" Grid.Row="3" Grid.Column="0" Click="PinClearButton_Click"/>
-            <Button Content="0" Grid.Row="3" Grid.Column="1" Click="PinKeypadButton_Click"/>
-            <Button Content="Back" Grid.Row="3" Grid.Column="2" Click="PinBackButton_Click"/>
-        </Grid>
 
         <Label Content="Or" HorizontalAlignment="Left" Margin="407,157,0,0" VerticalAlignment="Top" Height="33" Width="72" FontFamily="Arial Black" FontSize="24"/>
 
         <Button Content="Scan QR Code" HorizontalAlignment="Left" Margin="511,147,0,0" VerticalAlignment="Top" Width="150" Height="40" FontSize="16" FontWeight="Bold" Background="#4CAF50" Foreground="White" BorderThickness="0" Click="ScanQRCodeButton_Click"/>
 
-        <Button Content="Next" HorizontalAlignment="Left" Margin="346,310,0,0" VerticalAlignment="Top" Width="150" Height="40" FontSize="16" FontWeight="Bold" Background="#2E8B57" Foreground="White" BorderThickness="0" Click="NextButton_Click"/>
+        <Button Content="Next" HorizontalAlignment="Left" Margin="346,350,0,0" VerticalAlignment="Top" Width="150" Height="40" FontSize="16" FontWeight="Bold" Background="#2E8B57" Foreground="White" BorderThickness="0" Click="NextButton_Click"/>
 
-        <!-- On-screen keyboard -->
-        <Grid Name="KeyboardGrid" Visibility="Collapsed" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="30"/>
-            </Grid.ColumnDefinitions>
-            <Button Content="1" Grid.Row="0" Grid.Column="0" Click="KeyboardButton_Click"/>
-            <Button Content="2" Grid.Row="0" Grid.Column="1" Click="KeyboardButton_Click"/>
-            <Button Content="3" Grid.Row="0" Grid.Column="2" Click="KeyboardButton_Click"/>
-            <Button Content="4" Grid.Row="0" Grid.Column="3" Click="KeyboardButton_Click"/>
-            <Button Content="5" Grid.Row="0" Grid.Column="4" Click="KeyboardButton_Click"/>
-            <Button Content="6" Grid.Row="0" Grid.Column="5" Click="KeyboardButton_Click"/>
-            <Button Content="7" Grid.Row="0" Grid.Column="6" Click="KeyboardButton_Click"/>
-            <Button Content="8" Grid.Row="0" Grid.Column="7" Click="KeyboardButton_Click"/>
-            <Button Content="9" Grid.Row="0" Grid.Column="8" Click="KeyboardButton_Click"/>
-            <Button Content="0" Grid.Row="0" Grid.Column="9" Click="KeyboardButton_Click"/>
-            <Button Content="Q" Grid.Row="1" Grid.Column="0" Click="KeyboardButton_Click"/>
-            <Button Content="W" Grid.Row="1" Grid.Column="1" Click="KeyboardButton_Click"/>
-            <Button Content="E" Grid.Row="1" Grid.Column="2" Click="KeyboardButton_Click"/>
-            <Button Content="R" Grid.Row="1" Grid.Column="3" Click="KeyboardButton_Click"/>
-            <Button Content="T" Grid.Row="1" Grid.Column="4" Click="KeyboardButton_Click"/>
-            <Button Content="Y" Grid.Row="1" Grid.Column="5" Click="KeyboardButton_Click"/>
-            <Button Content="U" Grid.Row="1" Grid.Column="6" Click="KeyboardButton_Click"/>
-            <Button Content="I" Grid.Row="1" Grid.Column="7" Click="KeyboardButton_Click"/>
-            <Button Content="O" Grid.Row="1" Grid.Column="8" Click="KeyboardButton_Click"/>
-            <Button Content="P" Grid.Row="1" Grid.Column="9" Click="KeyboardButton_Click"/>
-            <Button Content="A" Grid.Row="2" Grid.Column="1" Click="KeyboardButton_Click"/>
-            <Button Content="S" Grid.Row="2" Grid.Column="2" Click="KeyboardButton_Click"/>
-            <Button Content="D" Grid.Row="2" Grid.Column="3" Click="KeyboardButton_Click"/>
-            <Button Content="F" Grid.Row="2" Grid.Column="4" Click="KeyboardButton_Click"/>
-            <Button Content="G" Grid.Row="2" Grid.Column="5" Click="KeyboardButton_Click"/>
-            <Button Content="H" Grid.Row="2" Grid.Column="6" Click="KeyboardButton_Click"/>
-            <Button Content="J" Grid.Row="2" Grid.Column="7" Click="KeyboardButton_Click"/>
-            <Button Content="K" Grid.Row="2" Grid.Column="8" Click="KeyboardButton_Click"/>
-            <Button Content="L" Grid.Row="2" Grid.Column="9" Click="KeyboardButton_Click"/>
-            <Button Content="Z" Grid.Row="3" Grid.Column="1" Click="KeyboardButton_Click"/>
-            <Button Content="X" Grid.Row="3" Grid.Column="2" Click="KeyboardButton_Click"/>
-            <Button Content="C" Grid.Row="3" Grid.Column="3" Click="KeyboardButton_Click"/>
-            <Button Content="V" Grid.Row="3" Grid.Column="4" Click="KeyboardButton_Click"/>
-            <Button Content="B" Grid.Row="3" Grid.Column="5" Click="KeyboardButton_Click"/>
-            <Button Content="N" Grid.Row="3" Grid.Column="6" Click="KeyboardButton_Click"/>
-            <Button Content="M" Grid.Row="3" Grid.Column="7" Click="KeyboardButton_Click"/>
-            <Button Content="Clear" Grid.Row="2" Grid.Column="0" Click="ClearButton_Click"/>
-            <Button Content="Back" Grid.Row="3" Grid.Column="8" Click="BackButton_Click"/>
-        </Grid>
+       
     </Grid>
 </Window>

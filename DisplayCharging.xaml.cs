@@ -21,7 +21,7 @@ namespace ProtypeForEV_Charging
     public partial class DisplayCharging : Window
     {
         private DispatcherTimer timer;
-        private int chargingTime = 60; // Charging time in seconds
+        private int chargingTime = 40; // Charging time in seconds
         private int elapsedTime = 0;
         public DisplayCharging()
         {

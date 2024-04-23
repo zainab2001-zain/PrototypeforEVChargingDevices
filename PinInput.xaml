@@ -1,0 +1,21 @@
+﻿<Window x:Class="ProtypeForEV_Charging.PinInput"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProtypeForEV_Charging"
+        mc:Ignorable="d"
+        Title="PinInput" Height="450" Width="800">
+    
+    <Grid Background="#DDFFDC">
+        <TextBlock Text="EV CHARGING STATION" FontSize="45" FontWeight="Bold" Margin="135,31,70,332" FontFamily="Wendy One" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center"/>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,130,0,0">
+            <TextBlock Text="Enter your Pin!" FontSize="40" FontFamily="Wendy One" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,30" />
+            <TextBox x:Name="PinTextBox" Width="350" Height="50" HorizontalAlignment="Center" GotFocus="PinTextBox_GotFocus" FontSize="40"/>
+        </StackPanel>
+
+        <Button Content="Next" HorizontalAlignment="Center" Margin="0,210,0,0" VerticalAlignment="Center" Width="150" Height="40" FontSize="16" FontWeight="Bold" Background="#2E8B57" Foreground="White" BorderThickness="0" Click="NextButton_Click"/>
+        <!-- Back button -->
+        <Button Content="Back" HorizontalAlignment="Left" Margin="40,20,0,40" VerticalAlignment="Bottom" Width="100" Height="30" FontSize="16" FontWeight="Bold" Background="#FF5733" Foreground="White" BorderThickness="0" Click="BackButton_Click"/>
+    </Grid>
+</Window>
