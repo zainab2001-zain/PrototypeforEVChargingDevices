@@ -30,11 +30,11 @@ namespace ProtypeForEV_Charging
 
         private void AccountNoTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            
-          
+            HideKeypadsExcept(null); // Hide all keypads
+            ShowKeyboard(AccountNoTextBox);
         }
 
-       
+
 
         private void KeyboardButton_Click(object sender, RoutedEventArgs e)
         {
@@ -64,9 +64,12 @@ namespace ProtypeForEV_Charging
 
         private void Window_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-           
+            if (!(e.NewFocus is TextBox))
+            {
+                HideKeyboard();
+                selectedTextBox = null;
+            }
         }
-       
 
 
 
@@ -97,7 +100,30 @@ namespace ProtypeForEV_Charging
             // Show the scanner window
             scannerWindow.ShowDialog();
         }
+        private void HideKeypadsExcept(Grid gridToKeepVisible)
+        {
+            if (gridToKeepVisible != KeyboardGrid)
+            {
+                KeyboardGrid.Visibility = Visibility.Collapsed;
+            }
 
+           
+        }
+        private void ShowKeyboard(TextBox textBox)
+        {
+            selectedTextBox = textBox;
+            KeyboardGrid.Visibility = Visibility.Visible;
+            // Position the keyboard below the selected input field
+            KeyboardGrid.Margin = new Thickness(textBox.Margin.Left, textBox.Margin.Top + textBox.Height + 10, 0, 0);
+        }
+        private void HideKeyboard()
+        {
+            KeyboardGrid.Visibility = Visibility.Collapsed;
+        }
+       
+       
+
+       
     }
 
 }

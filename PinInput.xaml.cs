@@ -28,12 +28,26 @@ namespace ProtypeForEV_Charging
         }
         private void PinTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
+            HideKeypadsExcept(PinKeypadGrid); // Hide all keypads except for PinKeypadGrid
+            ShowPinKeypad(PinTextBox);
+        }
+        private void HideKeypadsExcept(Grid gridToKeepVisible)
+        {
             
+            if (gridToKeepVisible != PinKeypadGrid)
+            {
+                PinKeypadGrid.Visibility = Visibility.Collapsed;
+            }
         }
 
-       
-        
-       
+        private void ShowPinKeypad(TextBox textBox)
+        {
+            selectedTextBox = textBox;
+            PinKeypadGrid.Visibility = Visibility.Visible;
+            // Position the pin keypad below the selected input field
+            PinKeypadGrid.Margin = new Thickness(textBox.Margin.Left, textBox.Margin.Top + textBox.Height + 10, 0, 0);
+        }
+
         private void PinKeypadButton_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
